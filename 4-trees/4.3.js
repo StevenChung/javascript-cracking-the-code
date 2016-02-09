@@ -1,4 +1,4 @@
-// Given a sorted (increasing order) array, write an algorithm to create a binary tree with minimal height
+// 4.3. Given a sorted (increasing order) array, write an algorithm to create a binary tree with minimal height
 
 var BinarySearchTree = require('./bst.js').BinarySearchTree;
 

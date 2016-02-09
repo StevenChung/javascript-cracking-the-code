@@ -158,6 +158,29 @@ BinarySearchTree.prototype.contains = function(targetVal) {
   return recurse(this.root);
 };
 
+BinarySearchTree.prototype.find = function(targetVal) {
+  if (!this.contains(targetVal)) {
+    return null;
+  }
+
+  var recurse = function(node) {
+    if (!node) {
+
+    }
+    if (node.value === targetVal) {
+      return node;
+    }
+    if (node.value > targetVal) {
+      return recurse(node.left);
+    }
+    if (node.value < targetVal) {
+      return recurse(node.right);
+    }
+  };
+
+  return recurse(this.root);
+}
+
 var exampleTree = new BinarySearchTree();
 exampleTree.insert(4);
 exampleTree.insert(2);
