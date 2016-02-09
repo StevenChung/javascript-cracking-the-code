@@ -1,7 +1,5 @@
 // 9.5. Write a method to compute all permutations of a string.
 
-//  NOT FINISHED
-
 var stringPermutations = function(str) {
   var result = [];
 
@@ -11,23 +9,19 @@ var stringPermutations = function(str) {
       return;
     } else {
       for (var i = 0; i < rest.length; i++) {
-        var strSoFar =
-          letter = str[i];
-        rest = str.slice(0, i).concat(str.slice(i + 1));
+        var newSSF = strSoFar + rest[i];
+        var newRest = rest.slice(0, i).concat(rest.slice(i + 1));
+        recurse(newSSF, newRest);
 
       }
-
     }
   };
 
-  recurse(0, '');
+  recurse('', str);
 
   return result;
 };
 
-console.log(stringPermutations('abc')); // ABC, ACB, BAC, BCA, CAB, CBA
+console.log(stringPermutations('ABC')); // ABC, ACB, BAC, BCA, CAB, CBA
 
-console.log(Array.apply(null, {
-  length: 5
-}).map(Number.call, Number));
 
