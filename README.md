@@ -2,7 +2,11 @@
 
 Cracking the Coding Interview solutions in JavaScript.
 
-1. [Chapter 1 - Arrays and Strings](...)
+1. [Chapter 1 - Arrays and Strings](#chapter-1-arrays-and-strings)
+
+4. [Chapter 4 - Trees & Graphs](#chapter-4-trees-graphs)
+
+9. [Chapter 9 - Recursion & Dynamic Programming](#chapter-9-recursion-dynamic-programming)
 
 
 

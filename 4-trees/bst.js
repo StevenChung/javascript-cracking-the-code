@@ -1,8 +1,9 @@
 var BinarySearchTree = function() {
   this.root = null;
+  this.size = 0;
 };
 
-var Node = function(value, parent, left, right) {
+var Node = function(value) {
   this.value = value;
   this.left = this.left || null;
   this.right = this.right || null;
@@ -10,6 +11,7 @@ var Node = function(value, parent, left, right) {
 
 BinarySearchTree.prototype.insert = function(node, current) {
   if (!node || !(node instanceof Node)) {
+    this.size++;
     node = new Node(node);
   }
 
@@ -69,7 +71,7 @@ BinarySearchTree.prototype.BFS = function(callback) {
 
 // In-order
 
-BinarySearchTree.prototype.preorder = function(callback, node) {
+BinarySearchTree.prototype.preorder = function(callback) {
   if (!this.root) {
     return null;
   }
@@ -86,7 +88,7 @@ BinarySearchTree.prototype.preorder = function(callback, node) {
   traverse(this.root);
 };
 
-BinarySearchTree.prototype.inorder = function(callback, node) {
+BinarySearchTree.prototype.inorder = function(callback) {
   if (!this.root) {
     return null;
   }
@@ -103,7 +105,7 @@ BinarySearchTree.prototype.inorder = function(callback, node) {
   traverse(this.root);
 };
 
-BinarySearchTree.prototype.postorder = function(callback, node) {
+BinarySearchTree.prototype.postorder = function(callback) {
   if (!this.root) {
     return null;
   }
@@ -136,14 +138,34 @@ BinarySearchTree.prototype.binarySearch = function(arr, target) {
   }
 };
 
-var tree = new BinarySearchTree();
-tree.insert(4);
-tree.insert(2);
-tree.insert(3);
-tree.insert(1);
-tree.insert(6);
-tree.insert(7);
-tree.insert(5);
+BinarySearchTree.prototype.contains = function(targetVal) {
+  if (!this.root) return false;
+
+  var recurse = function(node) {
+    if (!node) {
+      return false;
+    }
+    if (node.value === targetVal) {
+      return true;
+    }
+    if (node.value > targetVal) {
+      return recurse(node.left);
+    }
+    if (node.value < targetVal) {
+      return recurse(node.right);
+    }
+  };
+  return recurse(this.root);
+};
+
+var exampleTree = new BinarySearchTree();
+exampleTree.insert(4);
+exampleTree.insert(2);
+exampleTree.insert(3);
+exampleTree.insert(1);
+exampleTree.insert(6);
+exampleTree.insert(7);
+exampleTree.insert(5);
 
 module.exports.BinarySearchTree = BinarySearchTree;
-module.exports.tree = tree;
+module.exports.exampleTree = exampleTree;

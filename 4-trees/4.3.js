@@ -17,11 +17,10 @@ var createBST = function(arr) {
     arr.splice(mid, 1);
     recurse(arr.slice(0, mid));
     recurse(arr.slice(mid));
-  }
-
+  };
   recurse(arr);
   return tree;
 
 };
 
-console.log(createBST([0, 1, 2, 3, 4, 5, 6]).root)
+console.log(createBST([0, 1, 2, 3, 4, 5, 6]).root);

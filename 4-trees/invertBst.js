@@ -1,5 +1,5 @@
-var BinarySearchTree = require('./bst.js');
-var tree = require('./traversal.js').tree;
+var BinarySearchTree = require('./bst.js').BinarySearchTree;
+var exampleTree = require('./bst.js').exampleTree;
 
 //      4
 //    /   \
@@ -38,9 +38,9 @@ BinarySearchTree.prototype.invertTree = function(node) {
 //   console.log('node.value =', node.value);
 // })
 
-tree.invertTree();
+exampleTree.invertTree();
 
-tree.DFS(function(node) {
+exampleTree.DFS(function(node) {
   console.log('node.value =', node.value);
 });
 module.exports = BinarySearchTree.prototype.invertTree;

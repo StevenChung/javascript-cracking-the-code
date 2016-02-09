@@ -9,7 +9,6 @@ var memoize = function(func) {
     if (!cache[innerArgs]) {
       cache[innerArgs] = func.apply(this, arguments);
     }
-    console.log('cache =', cache);
     return cache[innerArgs];
   };
 }

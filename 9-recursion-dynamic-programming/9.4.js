@@ -1,14 +1,11 @@
-// // Return all subsets of a set.
+// 9.4. Write a method that returns all subsets of a set.
 
 var getSubsets = function(arr) {
-  return arr.reduceRight(function(acc, current) {
-    console.log('acc =', acc);
-    return acc.concat(acc.map(function(item) {
-      return [current].concat(item);
-    }));
-  }, [
-    []
-  ]);
+	return arr.reduceRight(function(acc, current) {
+		return acc.concat(acc.map(function(item) {
+			return [current].concat(item);
+		}));
+	}, [[]]);
 };
 
 console.log(getSubsets([1, 2, 3])); // [], [1], [2], [3], [1,2], [1,3], [2,3]
