@@ -5,22 +5,22 @@ var BinarySearchTree = require('./bst.js').BinarySearchTree;
 var exampleTree = require('./bst.js').exampleTree;
 
 var findNextInorder = function(tree, nodeVal) {
-	var arr = [];
-	var isFound = false;
-	var next = -1;
-	tree.inorder(function(node) {
-		if (isFound) {
-			next = node;
-			isFound = false;
-			return node;
-		}
-		arr.push(node.value);
-		if (node.value === nodeVal) {
-			isFound = true;
-		}
-	});
+  var arr = [];
+  var isFound = false;
+  var next = -1;
+  tree.inorder(function(node) {
+    if (isFound) {
+      next = node;
+      isFound = false;
+      return node;
+    }
+    arr.push(node.value);
+    if (node.value === nodeVal) {
+      isFound = true;
+    }
+  });
 
-	return next;
+  return next;
 };
 
 console.log(findNextInorder(exampleTree, 4));

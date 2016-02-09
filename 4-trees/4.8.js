@@ -5,36 +5,36 @@ var BinarySearchTree = require('./bst.js').BinarySearchTree;
 var exampleTree = require('./bst.js').exampleTree;
 
 BinarySearchTree.prototype.isSubtree = function(subtree) {
-	if (!this.root) return false;
-	if (!subtree.value) return true;
+  if (!this.root) return false;
+  if (!subtree.value) return true;
 
-	var findSmallRoot = function(bigTreeNode) {
-		if (!bigTreeNode) {
-			return null;
-		}
-		if (bigTreeNode.value === subtree.value) {
-			return bigTreeNode;
-		} else {
-			return findSmallRoot(bigTreeNode.left) || findSmallRoot(bigTreeNode.right);
-		}
-	};
+  var findSmallRoot = function(bigTreeNode) {
+    if (!bigTreeNode) {
+      return null;
+    }
+    if (bigTreeNode.value === subtree.value) {
+      return bigTreeNode;
+    } else {
+      return findSmallRoot(bigTreeNode.left) || findSmallRoot(bigTreeNode.right);
+    }
+  };
 
-	var matchTrees = function(bigTreeNode, subtreeNode) {
-		if (bigTreeNode === null && subtreeNode === null) return true;
-		if (bigTreeNode === null || subtreeNode === null) return false;
-		if (bigTreeNode.value !== subtreeNode.value) return false;
-		return matchTrees(bigTreeNode.left, subtreeNode.left) && matchTrees(bigTreeNode.right, subtreeNode.right);
-	};
+  var matchTrees = function(bigTreeNode, subtreeNode) {
+    if (bigTreeNode === null && subtreeNode === null) return true;
+    if (bigTreeNode === null || subtreeNode === null) return false;
+    if (bigTreeNode.value !== subtreeNode.value) return false;
+    return matchTrees(bigTreeNode.left, subtreeNode.left) && matchTrees(bigTreeNode.right, subtreeNode.right);
+  };
 
-	var smallRootAtBigTree = findSmallRoot(this.root);
+  var smallRootAtBigTree = findSmallRoot(this.root);
 
-	return (smallRootAtBigTree) ? (matchTrees(smallRootAtBigTree, subtree) ? true : false) : false;
+  return (smallRootAtBigTree) ? (matchTrees(smallRootAtBigTree, subtree) ? true : false) : false;
 };
 
 var notSubtree = {
-	value: 6,
-	left: null,
-	right: null
+  value: 6,
+  left: null,
+  right: null
 };
 
 console.log(exampleTree.isSubtree(exampleTree.root.left));

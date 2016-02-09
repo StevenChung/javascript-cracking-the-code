@@ -24,7 +24,6 @@ BinarySearchTree.prototype.getHeight = function(node) {
   return (node) ? recurse(node) : 0;
 };
 
-
 BinarySearchTree.prototype.isBalanced = function() {
   var left = this.getHeight(this.root.left);
   var right = this.getHeight(this.root.right);

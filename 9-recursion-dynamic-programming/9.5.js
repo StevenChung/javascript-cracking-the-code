@@ -23,5 +23,3 @@ var stringPermutations = function(str) {
 };
 
 console.log(stringPermutations('ABC')); // ABC, ACB, BAC, BCA, CAB, CBA
-
-

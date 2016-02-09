@@ -23,7 +23,6 @@ var runSteps = memoize(function(height) {
   return runSteps(height - 1) + runSteps(height - 2) + runSteps(height - 3);
 });
 
-
 // What if the input was height and max number of height to be skipped (i.e., if k = 8, you can take 1...8 steps)
 
 var runStepsKSteps = memoize(function(height, k) {
@@ -35,7 +34,7 @@ var runStepsKSteps = memoize(function(height, k) {
   }
   var sum = 0;
   for (var i = 0; i < k; i++) {
-    sum += runSteps (height - i);
+    sum += runSteps(height - i);
   }
   return sum;
 });
