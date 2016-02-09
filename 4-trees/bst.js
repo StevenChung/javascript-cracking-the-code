@@ -7,9 +7,12 @@ var Node = function(value) {
   this.value = value;
   this.left = this.left || null;
   this.right = this.right || null;
+  this.height = 0;
 };
 
-BinarySearchTree.prototype.insert = function(node, current) {
+BinarySearchTree.prototype.insert = function(node, current, height) {
+  height = (height === undefined) ? 0 : height;
+
   if (!node || !(node instanceof Node)) {
     this.size++;
     node = new Node(node);
@@ -18,21 +21,24 @@ BinarySearchTree.prototype.insert = function(node, current) {
   if (!this.root) {
     this.root = node;
     return node;
+  } else {
+    current = current || this.root;
+    height++;
   }
-
-  current = current || this.root;
 
   if (node.value < current.value) {
     if (!current.left) {
       current.left = node;
+      current.left.height = height;
     } else {
-      this.insert(node, current.left);
+      this.insert(node, current.left, height);
     }
   } else if (node.value > current.value) {
     if (!current.right) {
       current.right = node;
+      current.right.height = height;
     } else {
-      this.insert(node, current.right);
+      this.insert(node, current.right, height);
     }
   }
 };
@@ -165,7 +171,7 @@ BinarySearchTree.prototype.find = function(targetVal) {
 
   var recurse = function(node) {
     if (!node) {
-
+      return null;
     }
     if (node.value === targetVal) {
       return node;
@@ -177,9 +183,12 @@ BinarySearchTree.prototype.find = function(targetVal) {
       return recurse(node.right);
     }
   };
-
   return recurse(this.root);
-}
+};
+
+BinarySearchTree.prototype.printPretty = function() {
+
+};
 
 var exampleTree = new BinarySearchTree();
 exampleTree.insert(4);
