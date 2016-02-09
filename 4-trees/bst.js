@@ -186,9 +186,48 @@ BinarySearchTree.prototype.find = function(targetVal) {
   return recurse(this.root);
 };
 
-BinarySearchTree.prototype.printPretty = function() {
+BinarySearchTree.prototype.getHeight = function(node) {
+  var left = right = 0;
+  var recurse = function(node) {
+    if (!node.left && !node.right) {
+      return 1;
+    }
+    if (node.left) {
+      left = 1 + recurse(node.left);
+    }
+    if (node.right) {
+      right = 1 + recurse(node.right);
+    }
+    return Math.max(left, right);
+  };
 
+  return (node) ? recurse(node) : 0;
 };
+
+// BinarySearchTree.prototype.printPretty = function() {
+
+//   var height = this.getHeight(this.root);
+//   var arrayOfStrings = [];
+//   // prettyString += Array(height + 1).join(" ") + '\n';
+
+//   var currentHeight = 0;
+//   var arrAtCurrentLevel = [];
+
+//   this.BFS(function(node) {
+//     console.log('node.height, currentHeight =', node.height, currentHeight);
+//     if (node.height === currentHeight) {
+//       arrAtCurrentLevel.push(node.value);
+//     } else {
+//       arrayOfStrings.push(arrAtCurrentLevel.join("  "));
+//       currentHeight++;
+//       arrAtCurrentLevel = [];
+//       arrAtCurrentLevel.push(node.value);
+//     }
+//   });
+
+//   console.log('arrayOfStrings =', arrayOfStrings);
+
+// };
 
 var exampleTree = new BinarySearchTree();
 exampleTree.insert(4);
