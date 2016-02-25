@@ -14,8 +14,6 @@ exampleTree.insert(-1);
 exampleTree.insert(2);
 exampleTree.insert(1);
 exampleTree.insert(5);
-console.log('exampleTree =', exampleTree);
 
-// exampleTree.printPathsOfSum()
 
 

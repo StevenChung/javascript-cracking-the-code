@@ -1,5 +1,8 @@
 // 1.1 Implement an algorithm to determine if a string has all unique characters
+
+
 var isUnique = function(str) {
+
   var cache = {};
   for (var i = 0; i < str.length; i++) {
     var letter = str[i];

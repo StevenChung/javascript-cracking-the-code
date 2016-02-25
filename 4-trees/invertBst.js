@@ -1,3 +1,5 @@
+// Invert a tree horizontally such that it is a mirror image of the original tree.
+
 var BinarySearchTree = require('./bst.js').BinarySearchTree;
 var exampleTree = require('./bst.js').exampleTree;
 
@@ -7,17 +9,6 @@ var exampleTree = require('./bst.js').exampleTree;
 //  / \   / \
 // 1   3 5   9
 
-/**
- * Definition for a binary tree node.
- * function TreeNode(val) {
- *     this.val = val;
- *     this.left = this.right = null;
- * }
- */
-/**
- * @param {TreeNode} root
- * @return {TreeNode}
- */
 BinarySearchTree.prototype.invertTree = function(node) {
   if (!this.root) {
     return null;
@@ -33,10 +24,6 @@ BinarySearchTree.prototype.invertTree = function(node) {
     this.invertTree(node.right);
   }
 };
-
-// tree.DFS(function(node) {
-//   console.log('node.value =', node.value);
-// })
 
 exampleTree.invertTree();
 
