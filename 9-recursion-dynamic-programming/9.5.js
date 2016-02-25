@@ -12,13 +12,10 @@ var stringPermutations = function(str) {
         var newSSF = strSoFar + rest[i];
         var newRest = rest.slice(0, i).concat(rest.slice(i + 1));
         recurse(newSSF, newRest);
-
       }
     }
   };
-
   recurse('', str);
-
   return result;
 };
 

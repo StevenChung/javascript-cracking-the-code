@@ -204,30 +204,6 @@ BinarySearchTree.prototype.getHeight = function(node) {
   return (node) ? recurse(node) : 0;
 };
 
-// BinarySearchTree.prototype.printPretty = function() {
-
-//   var height = this.getHeight(this.root);
-//   var arrayOfStrings = [];
-//   // prettyString += Array(height + 1).join(" ") + '\n';
-
-//   var currentHeight = 0;
-//   var arrAtCurrentLevel = [];
-
-//   this.BFS(function(node) {
-//     console.log('node.height, currentHeight =', node.height, currentHeight);
-//     if (node.height === currentHeight) {
-//       arrAtCurrentLevel.push(node.value);
-//     } else {
-//       arrayOfStrings.push(arrAtCurrentLevel.join("  "));
-//       currentHeight++;
-//       arrAtCurrentLevel = [];
-//       arrAtCurrentLevel.push(node.value);
-//     }
-//   });
-
-//   console.log('arrayOfStrings =', arrayOfStrings);
-
-// };
 
 var exampleTree = new BinarySearchTree();
 exampleTree.insert(4);
